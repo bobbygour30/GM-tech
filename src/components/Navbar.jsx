@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-sky-100 text-sky-900 shadow-lg">
+    <nav className="top-0 left-0 w-full z-50 bg-sky-100 text-sky-900 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <a href="/" className="flex items-center">
