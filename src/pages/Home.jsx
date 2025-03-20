@@ -38,7 +38,7 @@ const Home = () => {
   return (
     <>
       {/* Hero Slider Section */}
-      <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
+      <div className="relative sm:mt-28 mt-0  w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
