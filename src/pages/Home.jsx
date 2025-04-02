@@ -38,6 +38,18 @@ const partners = [
     name: "Linux",
     logo: "https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg",
   },
+  {
+    name: "Dell",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/2048px-Dell_Logo.svg.png",
+  },
+  {
+    name: "HP",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/2048px-HP_logo_2012.svg.png",
+  },
+  {
+    name: "Lenovo",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lenovo_logo_2015.svg/2560px-Lenovo_logo_2015.svg.png",
+  },
 ];
 
 const Home = () => {
