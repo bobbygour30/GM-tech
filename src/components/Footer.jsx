@@ -52,9 +52,9 @@ const Footer = () => {
         <div className="flex flex-col items-center sm:items-start">
           <h4 className="text-lg sm:text-xl font-semibold text-sky-300 mb-4 sm:mb-6 tracking-wide">Contact Us</h4>
           <ul className="space-y-3 sm:space-y-4 text-center sm:text-left text-gray-200 text-sm sm:text-base">
-            <li>Phone: +91 8750920902</li>
+            <li>Phone: +91 0987654321</li>
             <li>Email: info@gmtech.com</li>
-            <li>Khazoori Khas, Delhi, 110094, India</li>
+            <li>Noida, Delhi, India</li>
           </ul>
         </div>
 

@@ -57,7 +57,7 @@ const Contact = () => {
           <ul className="space-y-6 text-gray-700">
             <li className="flex items-center space-x-4">
               <FontAwesomeIcon icon={faPhone} className="w-6 h-6 text-sky-600" />
-              <span className="text-base sm:text-lg">+91 8750920902</span>
+              <span className="text-base sm:text-lg">+91 1234567890</span>
             </li>
             <li className="flex items-center space-x-4">
               <FontAwesomeIcon icon={faEnvelope} className="w-6 h-6 text-sky-600" />
@@ -66,7 +66,7 @@ const Contact = () => {
             <li className="flex items-center space-x-4">
               <FontAwesomeIcon icon={faWhatsapp} className="w-6 h-6 text-sky-600" />
               <a
-                href="https://wa.me/918750920902"
+                href="https://wa.me/0987654321"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-base sm:text-lg text-sky-600 hover:text-sky-800 transition-colors duration-300"
@@ -76,7 +76,7 @@ const Contact = () => {
             </li>
           </ul>
           <p className="mt-6 text-sm sm:text-base text-gray-600">
-            Khazoori Khas, Delhi, 110094, India
+            Noida, Delhi, India
           </p>
         </div>
       </div>

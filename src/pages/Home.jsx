@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import Slider from "react-slick"; // Import react-slick
-import "slick-carousel/slick/slick.css"; // Import slick CSS
-import "slick-carousel/slick/slick-theme.css"; // Import slick theme CSS
 import assets from "../assets/assets";
 
 const slides = [
@@ -24,32 +21,13 @@ const testimonials = [
   { name: "Emily Johnson, Entrepreneur", text: "Premium security made accessible and effortless for my business." },
 ];
 
-// Partner logos (SVGs sourced from the web)
 const partners = [
-  {
-    name: "Microsoft",
-    logo: "https://cdn.worldvectorlogo.com/logos/microsoft-centered.svg",
-  },
-  {
-    name: "QuickHeal",
-    logo: "https://images.seeklogo.com/logo-png/29/2/quick-heal-logo-png_seeklogo-296886.png",
-  },
-  {
-    name: "Linux",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg",
-  },
-  {
-    name: "Dell",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/2048px-Dell_Logo.svg.png",
-  },
-  {
-    name: "HP",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/2048px-HP_logo_2012.svg.png",
-  },
-  {
-    name: "Lenovo",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lenovo_logo_2015.svg/2560px-Lenovo_logo_2015.svg.png",
-  },
+  { name: "Microsoft", logo: "https://cdn.worldvectorlogo.com/logos/microsoft-centered.svg" },
+  { name: "QuickHeal", logo: "https://images.seeklogo.com/logo-png/29/2/quick-heal-logo-png_seeklogo-296886.png" },
+  { name: "Linux", logo: "https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" },
+  { name: "Dell", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/2048px-Dell_Logo.svg.png" },
+  { name: "HP", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/2048px-HP_logo_2012.svg.png" },
+  { name: "Lenovo", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Lenovo_logo_2015.svg/2560px-Lenovo_logo_2015.svg.png" },
 ];
 
 const Home = () => {
@@ -65,32 +43,6 @@ const Home = () => {
     const galleryTimer = setInterval(() => setCurrentGallerySlide((prev) => (prev + 1) % gallerySlides.length), 2000);
     return () => clearInterval(galleryTimer);
   }, []);
-
-  // Settings for react-slick slider
-  const partnerSliderSettings = {
-    dots: false, // Hide dots for a cleaner look
-    infinite: true, // Seamless looping
-    speed: 500, // Transition speed in ms
-    slidesToShow: 4, // Show 3 slides at a time on large screens
-    slidesToScroll: 1, // Scroll 1 slide at a time
-    autoplay: true, // Auto-scroll
-    autoplaySpeed: 2000, // 3 seconds per slide
-    arrows: false, // Hide arrows for a minimal design
-    responsive: [
-      {
-        breakpoint: 1024, // Medium screens
-        settings: {
-          slidesToShow: 4,
-        },
-      },
-      {
-        breakpoint: 640, // Small screens
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-    ],
-  };
 
   return (
     <>
@@ -172,29 +124,78 @@ const Home = () => {
 
       {/* Our Partners Section */}
       <div className="bg-gradient-to-r from-sky-50 to-sky-100 py-10 sm:py-12 md:py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="mx-auto px-4 sm:px-6 md:px-8">
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-sky-900 text-center tracking-wide">
             Our Partners
           </h3>
           <hr className="mt-4 sm:mt-6 w-24 sm:w-32 mx-auto border-t-2 sm:border-t-3 border-sky-600" />
-          <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16">
-            <Slider {...partnerSliderSettings}>
-              {partners.map((partner, index) => (
-                <div key={index} className="px-4 sm:px-6 flex flex-col items-center justify-center">
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} Logo`}
-                    className="w-full h-20 sm:h-24 md:h-28 lg:h-32 object-contain filter drop-shadow-lg  transition-transform duration-300"
-                  />
-                  <p className="mt-2 text-sm sm:text-base md:text-lg font-semibold text-sky-800 text-center">
-                    {partner.name}
-                  </p>
-                </div>
-              ))}
-            </Slider>
+          <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 overflow-hidden">
+            <div className="marquee">
+              <div className="marquee-content flex">
+                {[...partners, ...partners, ...partners].map((partner, index) => ( // Triple duplication for smoother loop
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 flex flex-col items-center justify-center px-2 sm:px-4"
+                  >
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name} Logo`}
+                      className="w-full h-16 sm:h-20 md:h-24 lg:h-28 object-contain filter drop-shadow-lg transition-transform duration-300 hover:scale-110"
+                    />
+                    <p className="mt-2 text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-sky-800 text-center">
+                      {partner.name}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Custom CSS for Marquee */}
+      <style jsx>{`
+        .marquee {
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .marquee-content {
+          display: inline-flex;
+          animation: marquee 30s linear infinite; /* Increased to 30s for smoother transition with more content */
+        }
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-66.666%); /* Move 2/3 of the tripled content width */
+          }
+        }
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+          .marquee-content > div {
+            width: 120px; /* Slightly larger width on mobile */
+          }
+          .marquee-content img {
+            height: 40px; /* Increased logo size on mobile */
+          }
+          .marquee-content p {
+            font-size: 12px; /* Slightly larger text on mobile */
+          }
+        }
+        @media (min-width: 641px) and (max-width: 1024px) {
+          .marquee-content > div {
+            width: 160px; /* Larger width on tablets */
+          }
+          .marquee-content img {
+            height: 64px; /* Increased logo size on tablets */
+          }
+          .marquee-content p {
+            font-size: 14px; /* Slightly larger text on tablets */
+          }
+        }
+      `}</style>
 
       {/* Testimonials Section */}
       <div className="bg-gradient-to-r from-sky-50 to-sky-100 py-10 sm:py-12 md:py-16 lg:py-20">
@@ -231,14 +232,14 @@ const Home = () => {
           </p>
           <p className="text-gray-800 font-medium text-lg sm:text-xl mb-4 sm:mb-6">
             GM Tech Solutions<br />
-            Khazoori Khas, Delhi, 110094, India
+            Noida, Delhi, India
           </p>
-          <p className="text-gray-800 font-medium text-lg sm:text-xl mb-6 sm:mb-8">Phone: 8750920902</p>
+          <p className="text-gray-800 font-medium text-lg sm:text-xl mb-6 sm:mb-8">Phone: +91 0987654321</p>
           <h4 className="text-xl sm:text-2xl font-semibold text-sky-800 mb-4 sm:mb-6 tracking-tight">
             Reach Out via WhatsApp
           </h4>
           <a
-            href="https://wa.me/918750920902"
+            href="https://wa.me/0987654321"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-500 to-green-700 text-white font-semibold rounded-full shadow-2xl hover:from-green-600 hover:to-green-800 hover:scale-105 transition-all duration-300"
@@ -268,7 +269,7 @@ const Home = () => {
               <input
                 type="email"
                 placeholder="Your Email"
-                className="w-full p-4 sm:p-5 rounded-xl  bg-sky-800/70 text-white placeholder-gray-300 border border-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-500/50 transition-all duration-300"
+                className="w-full p-4 sm:p-5 rounded-xl bg-sky-800/70 text-white placeholder-gray-300 border border-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-500/50 transition-all duration-300"
               />
             </div>
             <div>
