@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import Slider from "react-slick"; // Import react-slick
+import "slick-carousel/slick/slick.css"; // Import slick CSS
+import "slick-carousel/slick/slick-theme.css"; // Import slick theme CSS
 import assets from "../assets/assets";
 
 const slides = [
@@ -21,6 +24,22 @@ const testimonials = [
   { name: "Emily Johnson, Entrepreneur", text: "Premium security made accessible and effortless for my business." },
 ];
 
+// Partner logos (SVGs sourced from the web)
+const partners = [
+  {
+    name: "Microsoft",
+    logo: "https://cdn.worldvectorlogo.com/logos/microsoft-centered.svg",
+  },
+  {
+    name: "QuickHeal",
+    logo: "https://images.seeklogo.com/logo-png/29/2/quick-heal-logo-png_seeklogo-296886.png",
+  },
+  {
+    name: "Linux",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg",
+  },
+];
+
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentGallerySlide, setCurrentGallerySlide] = useState(0);
@@ -35,10 +54,36 @@ const Home = () => {
     return () => clearInterval(galleryTimer);
   }, []);
 
+  // Settings for react-slick slider
+  const partnerSliderSettings = {
+    dots: false, // Hide dots for a cleaner look
+    infinite: true, // Seamless looping
+    speed: 500, // Transition speed in ms
+    slidesToShow: 3, // Show 3 slides at a time on large screens
+    slidesToScroll: 1, // Scroll 1 slide at a time
+    autoplay: true, // Auto-scroll
+    autoplaySpeed: 2000, // 3 seconds per slide
+    arrows: false, // Hide arrows for a minimal design
+    responsive: [
+      {
+        breakpoint: 1024, // Medium screens
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640, // Small screens
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       {/* Hero Slider Section */}
-      <div className="relative mt-12 sm:mt-28  w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
+      <div className="relative mt-12 sm:mt-28 w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -110,6 +155,32 @@ const Home = () => {
               </div>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Our Partners Section */}
+      <div className="bg-gradient-to-r from-sky-50 to-sky-100 py-10 sm:py-12 md:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-sky-900 text-center tracking-wide">
+            Our Partners
+          </h3>
+          <hr className="mt-4 sm:mt-6 w-24 sm:w-32 mx-auto border-t-2 sm:border-t-3 border-sky-600" />
+          <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16">
+            <Slider {...partnerSliderSettings}>
+              {partners.map((partner, index) => (
+                <div key={index} className="px-4 sm:px-6 flex flex-col items-center justify-center">
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} Logo`}
+                    className="w-full h-20 sm:h-24 md:h-28 lg:h-32 object-contain filter drop-shadow-lg  transition-transform duration-300"
+                  />
+                  <p className="mt-2 text-sm sm:text-base md:text-lg font-semibold text-sky-800 text-center">
+                    {partner.name}
+                  </p>
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
 
@@ -185,7 +256,7 @@ const Home = () => {
               <input
                 type="email"
                 placeholder="Your Email"
-                className="w-full p-4 sm:p-5 rounded-xl bg-sky-800/70 text-white placeholder-gray-300 border border-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-500/50 transition-all duration-300"
+                className="w-full p-4 sm:p-5 rounded-xl  bg-sky-800/70 text-white placeholder-gray-300 border border-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-500/50 transition-all duration-300"
               />
             </div>
             <div>
