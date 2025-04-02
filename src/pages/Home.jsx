@@ -71,7 +71,7 @@ const Home = () => {
     dots: false, // Hide dots for a cleaner look
     infinite: true, // Seamless looping
     speed: 500, // Transition speed in ms
-    slidesToShow: 3, // Show 3 slides at a time on large screens
+    slidesToShow: 4, // Show 3 slides at a time on large screens
     slidesToScroll: 1, // Scroll 1 slide at a time
     autoplay: true, // Auto-scroll
     autoplaySpeed: 2000, // 3 seconds per slide
@@ -80,13 +80,13 @@ const Home = () => {
       {
         breakpoint: 1024, // Medium screens
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 4,
         },
       },
       {
         breakpoint: 640, // Small screens
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 3,
         },
       },
     ],
